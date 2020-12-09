@@ -55,5 +55,22 @@ d3.json("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_day.geojs
 
 });
 
+var legend = L.control({ position: "bottomleft" });
+
+legend.onAdd = function(map) {
+  var div = L.DomUtil.create("div", "legend");
+  div.innerHTML += "<h4>Legend</h4>";
+  div.innerHTML += '<i style="background: #E1D51A"></i><span>less than 2m</span><br>';
+  div.innerHTML += '<i style="background: #E1B11A"></i><span>2-10m</span><br>';
+  div.innerHTML += '<i style="background: #E18A1A"></i><span>10-30m</span><br>';
+  div.innerHTML += '<i style="background: #E16B1A"></i><span>30-50m</span><br>';
+  div.innerHTML += '<i style="background: #E1531A"></i><span>50-80m</span><br>';
+  div.innerHTML += '<i style="background: #E12F1A"></i><span>80-110m</span><br>';
+  div.innerHTML += '<i style="background: #9D1212"></i><span>110+m</span><br>';
+  
+
+  return div;
+};
+legend.addTo(myMap);
 
 
